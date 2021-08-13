@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Stefanovskyi: Machine Learning Blog</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on Stefanovskyi: Machine Learning Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Aug 2021 21:31:51 +0300</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Fri, 13 Aug 2021 21:31:51 +0300</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>Hi everyone, this is my first post
+Code sample in python
+from pytest_perf.deco import extras @extras(&amp;#39;perf&amp;#39;) def discovery_perf(): &amp;#34;discovery&amp;#34; import importlib_metadata # end warmup importlib_metadata.distribution(&amp;#39;ipython&amp;#39;) </description>
+    </item>
+    
+  </channel>
+</rss>

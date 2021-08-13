@@ -1,0 +1,38 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Stefanovskyi: Machine Learning Blog'
+theme = "cactus"
+
+[params]
+
+    description = "Hi everyone, my name is Oleksandr, I am a Machine Learning enthusiast at night and Head of Research and Development at Intelliarts during the day. In this blog I share my experience and knowledge I have."
+    mainSection = "posts"
+    colortheme = "white"
+
+[[params.social]]
+name = "email"
+link = "oleksandr.stefanovskyi@gmail.com"
+
+[[params.social]]
+name = "linkedin"
+link = "https://www.linkedin.com/in/oleksandr-stefanovskyi/"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "All posts"
+    url = "/posts"
+    weight = 2
+
+showAllPostsArchive = true
+
+showProjectsList = true
+#projectsUrl = "https://github.com/monkeyWzr"
+
+#googleAnalytics = "UA-XXXXXXXX-XX"
+#googleAnalyticsAsync = true
+
+copyright = "Oleksandr Stefanovskyi"
