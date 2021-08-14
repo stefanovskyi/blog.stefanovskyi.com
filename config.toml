@@ -3,8 +3,9 @@ languageCode = 'en-us'
 title = 'Stefanovskyi: Machine Learning Blog'
 theme = "cactus"
 
-[params]
+publishDir = "docs"
 
+[params]
     description = "Hi everyone, my name is Oleksandr, I am a Machine Learning enthusiast at night and Head of Research and Development at Intelliarts during the day. In this blog I share my experience and knowledge I have."
     mainSection = "posts"
     colortheme = "white"
