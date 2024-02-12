@@ -1,0 +1,23 @@
+baseURL = 'https://blog.stefanovskyi.com/'
+languageCode = 'en-us'
+title = 'Oleksandr Stefanovskyi Blog'
+theme = "cactus"
+[params]
+
+  description = "[Head of R&D](https://stefanovskyi.com/) with expertise in AWS, software architecture, and Python development. Specializes in creating applications powered by Large Language Models alongside a team of engineers. Committed to advancing in Software Architecture and English proficiency. Based in Lviv, Ukraine, and focused on innovative technology solutions."
+  
+  mainSectionTitle = "Blog posts:"
+  
+  showAllPostsOnHomePage = true
+
+  colortheme = "dark" # dark, light, white, or classic
+  # Main menu which appears below site header.
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[params.social]]
+  name = "linkedin"
+  link = "https://www.linkedin.com/in/oleksandr-stefanovskyi/"
