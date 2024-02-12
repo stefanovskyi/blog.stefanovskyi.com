@@ -1,7 +1,7 @@
 +++
 title = 'Evolve or Be Extinct: Why Adaptable Leaders Thrive'
 date = 2024-01-24T01:53:29+02:00
-draft = true
+draft = false
 +++
 
 In the ever-evolving landscape of technology and business, the ability to adapt and change is not just a skill but a necessity. As a technical leader, I’ve learned that clinging to past successes or established methods can be a hidden obstacle to further growth and innovation. This realization is captured eloquently in Marshall Goldsmith’s phrase, “_What Got You Here Won’t Get You There._” It’s a powerful reminder that the strategies and behaviors that led to current successes might not be adequate for conquering future challenges.

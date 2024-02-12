@@ -1,7 +1,7 @@
 +++
 title = 'Unlocking the Potential of Iterative Evolution in Software Systems'
 date = 2023-04-21T02:07:30+02:00
-draft = true
+draft = false
 +++
 
 ![](https://miro.medium.com/v2/resize:fit:1400/1*iVKqsM0MB62CH1Hrc9k8Lg.png)

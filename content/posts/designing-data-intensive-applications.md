@@ -1,7 +1,7 @@
 +++
 title = 'Bridging Theory and Practice: A Review of "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems" by Martin Kleppmann'
 date = 2023-05-19T02:14:27+02:00
-draft = true
+draft = false
 +++
 Insights from the R&D Trenches on Martin Kleppmann's Influential Book
 ---------------------------------------------------------------------
