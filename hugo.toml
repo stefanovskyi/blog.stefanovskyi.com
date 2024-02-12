@@ -1,4 +1,4 @@
-baseURL = 'https://blog.stefanovskyi.com/'
+baseURL = 'https://blog.stefanovskyi.com'
 languageCode = 'en-us'
 title = 'Oleksandr Stefanovskyi Blog'
 theme = "cactus"
