@@ -4,7 +4,7 @@ title = 'Oleksandr Stefanovskyi Blog'
 theme = "cactus"
 [params]
 
-  description = "[Head of R&D](https://stefanovskyi.com/) with expertise in AWS, software architecture, and Python development. Specializes in creating applications powered by Large Language Models alongside a team of engineers. Committed to advancing in Software Architecture and English proficiency. Based in Lviv, Ukraine, and focused on innovative technology solutions."
+  description = "[Strategic Technology Partner](https://stefanovskyi.com/) who aligns tech plans with business goals and guides projects from first sketch to launch. Lately, I have led work that puts Generative AI into production training domain-specific models, building prompt workflows, and setting up secure deployment rails. I still design and scale microservice systems, practice test-driven development, and keep both engineers and senior leaders on the same page."
   
   mainSectionTitle = "Blog posts:"
   

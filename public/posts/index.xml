@@ -13,7 +13,14 @@
       <link>https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/</link>
       <pubDate>Wed, 24 Jan 2024 01:53:29 +0200</pubDate>
       <guid>https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/</guid>
-      <description>In the ever-evolving landscape of technology and business, the ability to adapt and change is not just a skill but a necessity. As a technical leader, I’ve learned that clinging to past successes or established methods can be a hidden obstacle to further growth and innovation. This realization is captured eloquently in Marshall Goldsmith’s phrase, “What Got You Here Won’t Get You There.” It’s a powerful reminder that the strategies and behaviors that led to current successes might not be adequate for conquering future challenges.</description>
+      <description>The Essence of Adaptability In the ever-evolving landscape of technology and business, the ability to adapt and change is not just a skill but a necessity. As a technical leader, I’ve learned that clinging to past successes or established methods can be a hidden obstacle to further growth and innovation. This realization is captured eloquently in Marshall Goldsmith’s phrase, “What Got You Here Won’t Get You There.” It’s a powerful reminder that the strategies and behaviors that led to current successes might not be adequate for conquering future challenges.</description>
+    </item>
+    <item>
+      <title>Generative AI Project Lifecycle</title>
+      <link>https://blog.stefanovskyi.com/posts/genai_project_lifecycle/</link>
+      <pubDate>Thu, 07 Sep 2023 19:08:49 +0200</pubDate>
+      <guid>https://blog.stefanovskyi.com/posts/genai_project_lifecycle/</guid>
+      <description>From defining your project’s scope to achieving optimal model deployment: a comprehensive guide. In the realm of software development, particularly when diving into the world of Generative AI, a structured, methodological approach can be the difference between a successful project and one that falters. As developers and architects, it’s imperative to understand each phase involved in developing and deploying a Language Model like LLM. This article serves as a roadmap, detailing the journey from project conception to its successful launch.</description>
     </item>
     <item>
       <title>Mitigating Undesirable Outputs from Large Language Models</title>
