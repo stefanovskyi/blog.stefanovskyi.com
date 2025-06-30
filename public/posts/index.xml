@@ -1,47 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Oleksandr Stefanovskyi Blog</title>
-    <link>https://blog.stefanovskyi.com/posts/</link>
-    <description>Recent content in Posts on Oleksandr Stefanovskyi Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jan 2024 01:53:29 +0200</lastBuildDate>
-    <atom:link href="https://blog.stefanovskyi.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Evolve or Be Extinct: Why Adaptable Leaders Thrive</title>
-      <link>https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/</link>
-      <pubDate>Wed, 24 Jan 2024 01:53:29 +0200</pubDate>
-      <guid>https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/</guid>
-      <description>The Essence of Adaptability In the ever-evolving landscape of technology and business, the ability to adapt and change is not just a skill but a necessity. As a technical leader, I’ve learned that clinging to past successes or established methods can be a hidden obstacle to further growth and innovation. This realization is captured eloquently in Marshall Goldsmith’s phrase, “What Got You Here Won’t Get You There.” It’s a powerful reminder that the strategies and behaviors that led to current successes might not be adequate for conquering future challenges.</description>
-    </item>
-    <item>
-      <title>Generative AI Project Lifecycle</title>
-      <link>https://blog.stefanovskyi.com/posts/genai_project_lifecycle/</link>
-      <pubDate>Thu, 07 Sep 2023 19:08:49 +0200</pubDate>
-      <guid>https://blog.stefanovskyi.com/posts/genai_project_lifecycle/</guid>
-      <description>From defining your project’s scope to achieving optimal model deployment: a comprehensive guide. In the realm of software development, particularly when diving into the world of Generative AI, a structured, methodological approach can be the difference between a successful project and one that falters. As developers and architects, it’s imperative to understand each phase involved in developing and deploying a Language Model like LLM. This article serves as a roadmap, detailing the journey from project conception to its successful launch.</description>
-    </item>
-    <item>
-      <title>Mitigating Undesirable Outputs from Large Language Models</title>
-      <link>https://blog.stefanovskyi.com/posts/mitigate-llm-risks/</link>
-      <pubDate>Wed, 30 Aug 2023 02:04:26 +0200</pubDate>
-      <guid>https://blog.stefanovskyi.com/posts/mitigate-llm-risks/</guid>
-      <description>Understanding and Overcoming the Risks of Deploying LLMs in Business Applications The Risks Hallucinations&#xA;LLMs can generate plausible but false content. For instance, summarizing a meeting might lead to fabricated events. Data Poisoning&#xA;LLMs trained on biased or incorrect data can produce harmful outputs, spreading those biases or falsehoods. Toxic Language&#xA;LLMs can inadvertently generate hate speech, abuse, or profanity, reflecting the worst elements of their training data. Unstable Performance</description>
-    </item>
-    <item>
-      <title>Bridging Theory and Practice: A Review of &#34;Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems&#34; by Martin Kleppmann</title>
-      <link>https://blog.stefanovskyi.com/posts/designing-data-intensive-applications/</link>
-      <pubDate>Fri, 19 May 2023 02:14:27 +0200</pubDate>
-      <guid>https://blog.stefanovskyi.com/posts/designing-data-intensive-applications/</guid>
-      <description>Insights from the R&amp;amp;D Trenches on Martin Kleppmann&amp;rsquo;s Influential Book As the Head of the R&amp;amp;D department, I continuously seek resources that foster a blend of theoretical understanding and practical application. One book that strikes this balance is Martin Kleppmann&amp;rsquo;s &amp;ldquo;Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems.&amp;rdquo;&#xA;My copy of the &amp;ldquo;Designing Data-Intensive Applications&amp;rdquo; book&#xA;Book Overview This comprehensive guide delves deep into the core principles that underpin data-intensive applications.</description>
-    </item>
-    <item>
-      <title>Unlocking the Potential of Iterative Evolution in Software Systems</title>
-      <link>https://blog.stefanovskyi.com/posts/iterative-evolution-in-software/</link>
-      <pubDate>Fri, 21 Apr 2023 02:07:30 +0200</pubDate>
-      <guid>https://blog.stefanovskyi.com/posts/iterative-evolution-in-software/</guid>
-      <description>Embracing Simplicity for Effective Software Development In today’s modern world, we constantly interact with intricate software systems and solutions that help us stay connected and streamline our lives. Interestingly, these advanced systems have their roots in more straightforward beginnings. In “Systemantics” (1975), John Gall shares an essential lesson about the world of complex systems: they should start as simple, functional systems and then evolve over time. In this blog post, we’ll discuss Gall’s principle and its significance for programmers and those involved in developing software solutions.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Oleksandr Stefanovskyi Blog</title><link>https://blog.stefanovskyi.com/posts/</link><description>Recent content in Posts on Oleksandr Stefanovskyi Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 24 Jan 2024 01:53:29 +0200</lastBuildDate><atom:link href="https://blog.stefanovskyi.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Evolve or Be Extinct: Why Adaptable Leaders Thrive</title><link>https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/</link><pubDate>Wed, 24 Jan 2024 01:53:29 +0200</pubDate><guid>https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/</guid><description>The Essence of Adaptability In the ever-evolving landscape of technology and business, the ability to adapt and change is not just a skill but a necessity. As a technical leader, I’ve learned that clinging to past successes or established methods can be a hidden obstacle to further growth and innovation. This realization is captured eloquently in Marshall Goldsmith’s phrase, “What Got You Here Won’t Get You There.” It’s a powerful reminder that the strategies and behaviors that led to current successes might not be adequate for conquering future challenges.</description></item><item><title>Generative AI Project Lifecycle</title><link>https://blog.stefanovskyi.com/posts/genai_project_lifecycle/</link><pubDate>Thu, 07 Sep 2023 19:08:49 +0200</pubDate><guid>https://blog.stefanovskyi.com/posts/genai_project_lifecycle/</guid><description>From defining your project’s scope to achieving optimal model deployment: a comprehensive guide. In the realm of software development, particularly when diving into the world of Generative AI, a structured, methodological approach can be the difference between a successful project and one that falters. As developers and architects, it’s imperative to understand each phase involved in developing and deploying a Language Model like LLM. This article serves as a roadmap, detailing the journey from project conception to its successful launch.</description></item><item><title>Mitigating Undesirable Outputs from Large Language Models</title><link>https://blog.stefanovskyi.com/posts/mitigate-llm-risks/</link><pubDate>Wed, 30 Aug 2023 02:04:26 +0200</pubDate><guid>https://blog.stefanovskyi.com/posts/mitigate-llm-risks/</guid><description>Understanding and Overcoming the Risks of Deploying LLMs in Business Applications The Risks Hallucinations
+LLMs can generate plausible but false content. For instance, summarizing a meeting might lead to fabricated events. Data Poisoning
+LLMs trained on biased or incorrect data can produce harmful outputs, spreading those biases or falsehoods. Toxic Language
+LLMs can inadvertently generate hate speech, abuse, or profanity, reflecting the worst elements of their training data. Unstable Performance</description></item><item><title>Bridging Theory and Practice: A Review of "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems" by Martin Kleppmann</title><link>https://blog.stefanovskyi.com/posts/designing-data-intensive-applications/</link><pubDate>Fri, 19 May 2023 02:14:27 +0200</pubDate><guid>https://blog.stefanovskyi.com/posts/designing-data-intensive-applications/</guid><description>Insights from the R&amp;amp;D Trenches on Martin Kleppmann&amp;rsquo;s Influential Book As the Head of the R&amp;amp;D department, I continuously seek resources that foster a blend of theoretical understanding and practical application. One book that strikes this balance is Martin Kleppmann&amp;rsquo;s &amp;ldquo;Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems.&amp;rdquo;
+My copy of the &amp;ldquo;Designing Data-Intensive Applications&amp;rdquo; book
+Book Overview This comprehensive guide delves deep into the core principles that underpin data-intensive applications.</description></item><item><title>Unlocking the Potential of Iterative Evolution in Software Systems</title><link>https://blog.stefanovskyi.com/posts/iterative-evolution-in-software/</link><pubDate>Fri, 21 Apr 2023 02:07:30 +0200</pubDate><guid>https://blog.stefanovskyi.com/posts/iterative-evolution-in-software/</guid><description>Embracing Simplicity for Effective Software Development In today’s modern world, we constantly interact with intricate software systems and solutions that help us stay connected and streamline our lives. Interestingly, these advanced systems have their roots in more straightforward beginnings. In “Systemantics” (1975), John Gall shares an essential lesson about the world of complex systems: they should start as simple, functional systems and then evolve over time. In this blog post, we’ll discuss Gall’s principle and its significance for programmers and those involved in developing software solutions.</description></item></channel></rss>
