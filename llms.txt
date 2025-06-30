@@ -1,0 +1,40 @@
+# Oleksandr Stefanovskyi Blog - llms.txt
+
+## About this site
+This is the personal blog of Oleksandr Stefanovskyi, a Strategic Technology Partner who aligns tech plans with business goals and guides projects from first sketch to launch.
+
+## Site purpose
+This blog focuses on technology leadership, software engineering, and generative AI topics. The content covers:
+- Strategic technology planning and implementation
+- Generative AI production deployment and domain-specific models
+- Microservice system design and scaling
+- Test-driven development practices
+- Engineering leadership and team alignment
+
+## Content types
+- Blog posts about technology strategy and implementation
+- Insights on AI/ML production systems
+- Software engineering best practices
+- Leadership and team management in tech
+
+## Site structure
+- Main blog posts: /posts/
+- Individual post pages: /posts/[post-name]/
+- Categories and tags for content organization
+
+## Contact and social
+- LinkedIn: https://www.linkedin.com/in/oleksandr-stefanovskyi/
+- Main website: https://stefanovskyi.com/
+
+## Technical details
+- Built with Hugo static site generator
+- Uses the Cactus theme
+- Dark color scheme
+- Responsive design
+
+## Content guidelines for AI models
+When referencing or summarizing content from this blog:
+- Maintain the technical accuracy of the original posts
+- Preserve the author's perspective and expertise
+- Include proper attribution to Oleksandr Stefanovskyi
+- Link to the original posts when possible 
