@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Generative AI Project Lifecycle | Oleksandr Stefanovskyi Blog</title>
+  <link rel = 'canonical' href = 'https://blog.stefanovskyi.com/posts/genai_project_lifecycle/'>
+  <meta name="description" content="[Strategic Technology Partner](https://stefanovskyi.com/) who aligns tech plans with business goals and guides projects from first sketch to launch. Lately, I have led work that puts Generative AI into production training domain-specific models, building prompt workflows, and setting up secure deployment rails. I still design and scale microservice systems, practice test-driven development, and keep both engineers and senior leaders on the same page.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Generative AI Project Lifecycle" />
+<meta property="og:description" content="From defining your project’s scope to achieving optimal model deployment: a comprehensive guide. In the realm of software development, particularly when diving into the world of Generative AI, a structured, methodological approach can be the difference between a successful project and one that falters. As developers and architects, it’s imperative to understand each phase involved in developing and deploying a Language Model like LLM. This article serves as a roadmap, detailing the journey from project conception to its successful launch." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.stefanovskyi.com/posts/genai_project_lifecycle/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-07T19:08:49+02:00" />
+<meta property="article:modified_time" content="2023-09-07T19:08:49+02:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Generative AI Project Lifecycle"/>
+<meta name="twitter:description" content="From defining your project’s scope to achieving optimal model deployment: a comprehensive guide. In the realm of software development, particularly when diving into the world of Generative AI, a structured, methodological approach can be the difference between a successful project and one that falters. As developers and architects, it’s imperative to understand each phase involved in developing and deploying a Language Model like LLM. This article serves as a roadmap, detailing the journey from project conception to its successful launch."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://blog.stefanovskyi.com/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://blog.stefanovskyi.com/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/posts">All posts</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://blog.stefanovskyi.com/posts/mitigate-llm-risks/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://blog.stefanovskyi.com/posts/evolve-or-be-extinct/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&text=Generative%20AI%20Project%20Lifecycle" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&title=Generative%20AI%20Project%20Lifecycle" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&is_video=false&description=Generative%20AI%20Project%20Lifecycle" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Generative%20AI%20Project%20Lifecycle&body=Check out this article: https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&title=Generative%20AI%20Project%20Lifecycle" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&title=Generative%20AI%20Project%20Lifecycle" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&name=Generative%20AI%20Project%20Lifecycle&description=From%20defining%20your%20project%e2%80%99s%20scope%20to%20achieving%20optimal%20model%20deployment%3a%20a%20comprehensive%20guide.%20In%20the%20realm%20of%20software%20development%2c%20particularly%20when%20diving%20into%20the%20world%20of%20Generative%20AI%2c%20a%20structured%2c%20methodological%20approach%20can%20be%20the%20difference%20between%20a%20successful%20project%20and%20one%20that%20falters.%20As%20developers%20and%20architects%2c%20it%e2%80%99s%20imperative%20to%20understand%20each%20phase%20involved%20in%20developing%20and%20deploying%20a%20Language%20Model%20like%20LLM.%20This%20article%20serves%20as%20a%20roadmap%2c%20detailing%20the%20journey%20from%20project%20conception%20to%20its%20successful%20launch." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&t=Generative%20AI%20Project%20Lifecycle" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#from-defining-your-projects-scope-to-achieving-optimal-model-deployment-a-comprehensive-guide">From defining your project’s scope to achieving optimal model deployment: a comprehensive guide.</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#importance-of-scope-definition">Importance of Scope Definition</a>
+      <ul>
+        <li><a href="#there-are-planty-of-typical-tasks-for-llms-but-the-most-common-are">There are planty of typical tasks for LLMs, but the most common are:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#understanding-model-capabilities">Understanding Model Capabilities</a></li>
+    <li><a href="#considerations-for-model-selection">Considerations for Model Selection</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#performance-assessment-and-training">Performance Assessment and Training</a></li>
+    <li><a href="#ensuring-model-behavior-is-aligned">Ensuring Model Behavior is Aligned</a></li>
+    <li><a href="#evaluation-of-the-model">Evaluation of the Model</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#model-optimization">Model Optimization</a></li>
+    <li><a href="#dealing-with-llm-limitations">Dealing with LLM Limitations</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Generative AI Project Lifecycle
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2023-09-07 19:08:49 &#43;0200 CEST" itemprop="datePublished">2023-09-07</time>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="from-defining-your-projects-scope-to-achieving-optimal-model-deployment-a-comprehensive-guide">From defining your project’s scope to achieving optimal model deployment: a comprehensive guide.</h2>
+<p>In the realm of software development, particularly when diving into the world of Generative AI, a structured, methodological approach can be the difference between a successful project and one that falters. As developers and architects, it’s imperative to understand each phase involved in developing and deploying a Language Model like LLM. This article serves as a roadmap, detailing the journey from project conception to its successful launch.</p>
+<h1 id="generative-ai-project-life-cycle">Generative AI Project Life Cycle</h1>
+<p>Navigating the complexities of Generative AI projects can be daunting. However, a well-defined framework or life cycle can simplify the journey, ensuring that developers and stakeholders can anticipate challenges and address them proactively.</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 1128 825"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,0 L 72,0' fill='none' stroke='currentColor'></path>
+<path d='M 232,0 L 304,0' fill='none' stroke='currentColor'></path>
+<path d='M 448,0 L 640,0' fill='none' stroke='currentColor'></path>
+<path d='M 768,0 L 992,0' fill='none' stroke='currentColor'></path>
+<path d='M 0,64 L 32,64' fill='none' stroke='currentColor'></path>
+<path d='M 32,64 L 72,64' fill='none' stroke='currentColor'></path>
+<path d='M 232,64 L 272,64' fill='none' stroke='currentColor'></path>
+<path d='M 272,64 L 304,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,64 L 544,64' fill='none' stroke='currentColor'></path>
+<path d='M 544,64 L 640,64' fill='none' stroke='currentColor'></path>
+<path d='M 768,64 L 848,64' fill='none' stroke='currentColor'></path>
+<path d='M 848,64 L 992,64' fill='none' stroke='currentColor'></path>
+<path d='M 32,96 L 56,96' fill='none' stroke='currentColor'></path>
+<path d='M 232,96 L 264,96' fill='none' stroke='currentColor'></path>
+<path d='M 272,112 L 296,112' fill='none' stroke='currentColor'></path>
+<path d='M 512,112 L 536,112' fill='none' stroke='currentColor'></path>
+<path d='M 472,144 L 776,144' fill='none' stroke='currentColor'></path>
+<path d='M 488,192 L 736,192' fill='none' stroke='currentColor'></path>
+<path d='M 712,208 L 720,208' fill='none' stroke='currentColor'></path>
+<path d='M 600,240 L 720,240' fill='none' stroke='currentColor'></path>
+<path d='M 488,256 L 736,256' fill='none' stroke='currentColor'></path>
+<path d='M 720,288 L 736,288' fill='none' stroke='currentColor'></path>
+<path d='M 600,320 L 736,320' fill='none' stroke='currentColor'></path>
+<path d='M 648,352 L 736,352' fill='none' stroke='currentColor'></path>
+<path d='M 600,384 L 736,384' fill='none' stroke='currentColor'></path>
+<path d='M 472,416 L 544,416' fill='none' stroke='currentColor'></path>
+<path d='M 544,416 L 776,416' fill='none' stroke='currentColor'></path>
+<path d='M 544,448 L 592,448' fill='none' stroke='currentColor'></path>
+<path d='M 808,448 L 840,448' fill='none' stroke='currentColor'></path>
+<path d='M 704,512 L 848,512' fill='none' stroke='currentColor'></path>
+<path d='M 848,512 L 1112,512' fill='none' stroke='currentColor'></path>
+<path d='M 1072,544 L 1080,544' fill='none' stroke='currentColor'></path>
+<path d='M 888,576 L 1080,576' fill='none' stroke='currentColor'></path>
+<path d='M 1056,608 L 1080,608' fill='none' stroke='currentColor'></path>
+<path d='M 888,656 L 1080,656' fill='none' stroke='currentColor'></path>
+<path d='M 704,672 L 840,672' fill='none' stroke='currentColor'></path>
+<path d='M 840,672 L 1112,672' fill='none' stroke='currentColor'></path>
+<path d='M 0,736 L 32,736' fill='none' stroke='currentColor'></path>
+<path d='M 32,736 L 72,736' fill='none' stroke='currentColor'></path>
+<path d='M 232,736 L 272,736' fill='none' stroke='currentColor'></path>
+<path d='M 272,736 L 304,736' fill='none' stroke='currentColor'></path>
+<path d='M 448,736 L 544,736' fill='none' stroke='currentColor'></path>
+<path d='M 544,736 L 640,736' fill='none' stroke='currentColor'></path>
+<path d='M 768,736 L 840,736' fill='none' stroke='currentColor'></path>
+<path d='M 840,736 L 992,736' fill='none' stroke='currentColor'></path>
+<path d='M 0,800 L 72,800' fill='none' stroke='currentColor'></path>
+<path d='M 232,800 L 304,800' fill='none' stroke='currentColor'></path>
+<path d='M 448,800 L 640,800' fill='none' stroke='currentColor'></path>
+<path d='M 768,800 L 992,800' fill='none' stroke='currentColor'></path>
+<path d='M 0,0 L 0,64' fill='none' stroke='currentColor'></path>
+<path d='M 0,736 L 0,800' fill='none' stroke='currentColor'></path>
+<path d='M 32,64 L 32,96' fill='none' stroke='currentColor'></path>
+<path d='M 32,96 L 32,736' fill='none' stroke='currentColor'></path>
+<path d='M 72,0 L 72,64' fill='none' stroke='currentColor'></path>
+<path d='M 72,736 L 72,800' fill='none' stroke='currentColor'></path>
+<path d='M 232,0 L 232,64' fill='none' stroke='currentColor'></path>
+<path d='M 232,736 L 232,800' fill='none' stroke='currentColor'></path>
+<path d='M 272,64 L 272,112' fill='none' stroke='currentColor'></path>
+<path d='M 272,112 L 272,736' fill='none' stroke='currentColor'></path>
+<path d='M 304,0 L 304,64' fill='none' stroke='currentColor'></path>
+<path d='M 304,736 L 304,800' fill='none' stroke='currentColor'></path>
+<path d='M 448,0 L 448,64' fill='none' stroke='currentColor'></path>
+<path d='M 448,736 L 448,800' fill='none' stroke='currentColor'></path>
+<path d='M 472,144 L 472,416' fill='none' stroke='currentColor'></path>
+<path d='M 488,192 L 488,256' fill='none' stroke='currentColor'></path>
+<path d='M 544,64 L 544,128' fill='none' stroke='currentColor'></path>
+<path d='M 544,416 L 544,448' fill='none' stroke='currentColor'></path>
+<path d='M 544,448 L 544,736' fill='none' stroke='currentColor'></path>
+<path d='M 600,224 L 600,240' fill='none' stroke='currentColor'></path>
+<path d='M 600,304 L 600,320' fill='none' stroke='currentColor'></path>
+<path d='M 600,368 L 600,384' fill='none' stroke='currentColor'></path>
+<path d='M 640,0 L 640,64' fill='none' stroke='currentColor'></path>
+<path d='M 640,736 L 640,800' fill='none' stroke='currentColor'></path>
+<path d='M 704,512 L 704,672' fill='none' stroke='currentColor'></path>
+<path d='M 720,208 L 720,240' fill='none' stroke='currentColor'></path>
+<path d='M 736,192 L 736,256' fill='none' stroke='currentColor'></path>
+<path d='M 736,288 L 736,320' fill='none' stroke='currentColor'></path>
+<path d='M 736,352 L 736,384' fill='none' stroke='currentColor'></path>
+<path d='M 768,0 L 768,64' fill='none' stroke='currentColor'></path>
+<path d='M 768,736 L 768,800' fill='none' stroke='currentColor'></path>
+<path d='M 776,144 L 776,416' fill='none' stroke='currentColor'></path>
+<path d='M 840,672 L 840,736' fill='none' stroke='currentColor'></path>
+<path d='M 848,64 L 848,512' fill='none' stroke='currentColor'></path>
+<path d='M 888,560 L 888,576' fill='none' stroke='currentColor'></path>
+<path d='M 888,640 L 888,656' fill='none' stroke='currentColor'></path>
+<path d='M 992,0 L 992,64' fill='none' stroke='currentColor'></path>
+<path d='M 992,736 L 992,800' fill='none' stroke='currentColor'></path>
+<path d='M 1080,544 L 1080,576' fill='none' stroke='currentColor'></path>
+<path d='M 1080,608 L 1080,656' fill='none' stroke='currentColor'></path>
+<path d='M 1112,512 L 1112,672' fill='none' stroke='currentColor'></path>
+<path d='M 544,128 L 544,136' fill='none' stroke='currentColor'></path>
+<polygon points='272.000000,96.000000 260.000000,90.400002 260.000000,101.599998' fill='currentColor' transform='rotate(0.000000, 264.000000, 96.000000)'></polygon>
+<polygon points='544.000000,112.000000 532.000000,106.400002 532.000000,117.599998' fill='currentColor' transform='rotate(0.000000, 536.000000, 112.000000)'></polygon>
+<polygon points='608.000000,224.000000 596.000000,218.399994 596.000000,229.600006' fill='currentColor' transform='rotate(270.000000, 600.000000, 224.000000)'></polygon>
+<polygon points='608.000000,304.000000 596.000000,298.399994 596.000000,309.600006' fill='currentColor' transform='rotate(270.000000, 600.000000, 304.000000)'></polygon>
+<polygon points='608.000000,368.000000 596.000000,362.399994 596.000000,373.600006' fill='currentColor' transform='rotate(270.000000, 600.000000, 368.000000)'></polygon>
+<polygon points='848.000000,448.000000 836.000000,442.399994 836.000000,453.600006' fill='currentColor' transform='rotate(0.000000, 840.000000, 448.000000)'></polygon>
+<polygon points='896.000000,560.000000 884.000000,554.400024 884.000000,565.599976' fill='currentColor' transform='rotate(270.000000, 888.000000, 560.000000)'></polygon>
+<polygon points='896.000000,640.000000 884.000000,634.400024 884.000000,645.599976' fill='currentColor' transform='rotate(270.000000, 888.000000, 640.000000)'></polygon>
+<text text-anchor='middle' x='16' y='36' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='16' y='772' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='24' y='772' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='32' y='772' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='40' y='772' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='772' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='100' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='80' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='88' y='100' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='104' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='128' y='100' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='136' y='100' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='144' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='160' y='100' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='168' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='176' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='100' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='200' y='100' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='208' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='216' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='248' y='36' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='248' y='772' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='256' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='256' y='772' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='264' y='36' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='264' y='772' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='272' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='272' y='772' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='280' y='772' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='288' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='288' y='772' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='312' y='116' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='320' y='116' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='328' y='116' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='336' y='116' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='336' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='344' y='116' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='344' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='352' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='360' y='132' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='368' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='368' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='376' y='116' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='376' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='384' y='132' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='392' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='392' y='132' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='400' y='116' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='400' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='408' y='116' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='408' y='132' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='416' y='116' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='416' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='424' y='116' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='424' y='132' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='432' y='116' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='440' y='116' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='440' y='132' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='448' y='116' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='448' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='456' y='132' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='464' y='36' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='464' y='116' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='464' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='464' y='772' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='472' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='472' y='116' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='472' y='772' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='480' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='480' y='116' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='480' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='480' y='772' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='488' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='488' y='116' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='132' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='488' y='772' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='496' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='496' y='116' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='496' y='132' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='496' y='772' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='512' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='512' y='212' fill='currentColor' style='font-size:1em'>I</text>
+<text text-anchor='middle' x='512' y='292' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='512' y='772' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='520' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='520' y='212' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='520' y='292' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='520' y='772' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='528' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='528' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='528' y='772' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='536' y='212' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='536' y='292' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='544' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='544' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='544' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='544' y='772' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='552' y='36' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='552' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='552' y='772' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='560' y='36' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='560' y='164' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='560' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='560' y='292' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='560' y='772' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='568' y='36' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='568' y='164' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='568' y='212' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='568' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='568' y='772' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='576' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='576' y='164' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='576' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='576' y='292' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='576' y='356' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='576' y='772' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='584' y='164' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='584' y='212' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='584' y='292' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='584' y='356' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='592' y='36' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='592' y='164' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='592' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='592' y='356' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='592' y='772' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='600' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='600' y='164' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='600' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='600' y='292' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='600' y='356' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='600' y='772' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='608' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='608' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='608' y='292' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='608' y='356' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='608' y='452' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='608' y='772' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='616' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='616' y='164' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='616' y='212' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='616' y='292' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='616' y='356' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='616' y='452' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='616' y='772' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='624' y='36' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='624' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='624' y='292' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='624' y='356' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='624' y='452' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='624' y='772' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='632' y='164' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='632' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='632' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='632' y='356' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='632' y='452' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='640' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='640' y='212' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='640' y='452' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='648' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='648' y='292' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='656' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='656' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='656' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='656' y='452' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='664' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='664' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='664' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='664' y='452' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='672' y='164' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='672' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='672' y='292' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='680' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='680' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='680' y='292' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='680' y='452' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='688' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='688' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='688' y='292' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='688' y='452' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='696' y='164' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='696' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='696' y='292' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='696' y='452' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='704' y='292' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='704' y='452' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='712' y='452' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='728' y='452' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='736' y='452' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='752' y='452' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='752' y='548' fill='currentColor' style='font-size:1em'>O</text>
+<text text-anchor='middle' x='760' y='452' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='760' y='548' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='768' y='452' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='768' y='548' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='768' y='612' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='776' y='452' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='776' y='548' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='776' y='612' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='784' y='36' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='784' y='452' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='784' y='548' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='784' y='612' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='784' y='772' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='792' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='792' y='452' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='792' y='548' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='792' y='612' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='792' y='772' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='800' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='800' y='548' fill='currentColor' style='font-size:1em'>z</text>
+<text text-anchor='middle' x='800' y='612' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='800' y='772' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='808' y='36' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='808' y='548' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='808' y='612' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='808' y='772' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='816' y='36' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='816' y='612' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='816' y='772' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='824' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='824' y='548' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='824' y='628' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='824' y='772' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='832' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='832' y='548' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='832' y='612' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='832' y='628' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='832' y='772' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='840' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='840' y='548' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='840' y='612' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='840' y='628' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='840' y='772' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='848' y='36' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='848' y='612' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='848' y='628' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='848' y='772' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='856' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='856' y='548' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='856' y='612' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='856' y='628' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='856' y='772' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='864' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='864' y='548' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='864' y='612' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='864' y='628' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='864' y='772' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='872' y='548' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='872' y='628' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='880' y='36' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='880' y='548' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='880' y='612' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='880' y='628' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='880' y='772' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='888' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='888' y='548' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='888' y='612' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='888' y='628' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='888' y='772' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='896' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='896' y='548' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='896' y='612' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='896' y='628' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='896' y='772' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='904' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='904' y='628' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='904' y='772' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='912' y='36' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='912' y='548' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='912' y='612' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='912' y='628' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='912' y='772' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='920' y='36' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='920' y='548' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='920' y='612' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='920' y='772' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='928' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='928' y='548' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='928' y='612' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='928' y='772' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='936' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='936' y='548' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='936' y='612' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='936' y='772' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='944' y='36' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='944' y='548' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='944' y='612' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='944' y='772' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='952' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='952' y='772' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='960' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='960' y='548' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='960' y='612' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='960' y='772' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='968' y='36' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='968' y='548' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='968' y='612' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='968' y='772' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='976' y='548' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='976' y='612' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='984' y='612' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='992' y='548' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='992' y='612' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='1000' y='548' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='1000' y='612' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='1008' y='548' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='1008' y='612' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='1016' y='548' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='1016' y='612' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='1024' y='548' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='1024' y='612' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='1032' y='548' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='1032' y='612' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='1040' y='548' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='1040' y='612' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='1048' y='548' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='1056' y='548' fill='currentColor' style='font-size:1em'>e</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>Sequence diagrams a typical project with generative AI</p>
+<h1 id="stage-1-define-the-scope">Stage 1: Define the Scope</h1>
+<h2 id="importance-of-scope-definition">Importance of Scope Definition</h2>
+<p>The foundation of any successful project lies in understanding its boundaries. By defining a project’s scope accurately and narrowly, developers can ensure that resources are allocated efficiently, and objectives are met with precision.</p>
+<h3 id="there-are-planty-of-typical-tasks-for-llms-but-the-most-common-are">There are planty of typical tasks for LLMs, but the most common are:</h3>
+<table>
+<thead>
+<tr>
+<th>Task Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chatbot Functions</td>
+<td>Serving as the core technology behind basic chatbots.</td>
+</tr>
+<tr>
+<td>Essay Writing</td>
+<td>Generating essays based on provided prompts.</td>
+</tr>
+<tr>
+<td>Conversation Summarization</td>
+<td>Summarizing dialogues based on the text provided as input.</td>
+</tr>
+<tr>
+<td>Translation Tasks</td>
+<td>Traditional translation between two different languages, such as French to German or English to Spanish.</td>
+</tr>
+<tr>
+<td>Code Generation</td>
+<td>Translating natural language into machine code. For instance, generating Python code based on a user prompt.</td>
+</tr>
+<tr>
+<td>Information Retrieval</td>
+<td>Executing smaller tasks like fetching specific information.</td>
+</tr>
+<tr>
+<td>Named Entity Recognition</td>
+<td>Identifying people and places in a text, usually in the context of news articles or other written documents.</td>
+</tr>
+<tr>
+<td>External Data and API Integration</td>
+<td>Augmenting the model&rsquo;s capabilities by connecting it to external data sources or APIs to interact with the real world.</td>
+</tr>
+<tr>
+<td>Fine-Tuning for Specific Tasks</td>
+<td>Smaller models can be fine-tuned to excel at specific tasks, although the text doesn&rsquo;t explicitly say what these tasks could be.</td>
+</tr>
+<tr>
+<td>Language Understanding</td>
+<td>As the scale of foundation models grows, they gain a more refined understanding of language, which is encoded within their parameters.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://gist.github.com/stefanovskyi/b27584057496bc6834d9a3497bce44d8">Link to my Gist with most popular LLM tasks</a></p>
+<p>In the dynamic world of AI, it’s tempting to aim for a model that can “do it all.” However, specificity is a virtue. Identifying the exact functions and tasks an LLM should perform can save both time and computational costs, ensuring a smoother development phase.</p>
+<h1 id="stage-2-model-selection">Stage 2: Model Selection</h1>
+<p>With a clear scope in hand, the next step involves a critical decision: should one train a model from scratch or utilize an existing base model? Each choice comes with its own set of challenges and advantages.</p>
+<h2 id="understanding-model-capabilities">Understanding Model Capabilities</h2>
+<p>Every model is unique, with capabilities largely influenced by its architecture and size. It’s essential to grasp these nuances to anticipate the model’s potential strengths and weaknesses.</p>
+<h2 id="considerations-for-model-selection">Considerations for Model Selection</h2>
+<p>A multitude of factors come into play when selecting a model, from computational resources to the intricacy of tasks the model is expected to perform. This section delves into these considerations, offering a guiding hand in this crucial decision-making phase.</p>
+<h1 id="stage-3-adapt-and-align-model">Stage 3: Adapt and Align Model</h1>
+<p>At the heart of Generative AI projects, especially when working with Language Model Libraries (LLMs), lies the imperative step of model adaptation and alignment. This stage is pivotal in bridging the gap between theoretical constructs and practical application, ensuring your AI model doesn’t just work but excels.</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 560 681"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 176,0 L 336,0' fill='none' stroke='currentColor'></path>
+<path d='M 176,32 L 256,32' fill='none' stroke='currentColor'></path>
+<path d='M 256,32 L 336,32' fill='none' stroke='currentColor'></path>
+<path d='M 0,96 L 256,96' fill='none' stroke='currentColor'></path>
+<path d='M 256,96 L 520,96' fill='none' stroke='currentColor'></path>
+<path d='M 32,144 L 224,144' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 488,144' fill='none' stroke='currentColor'></path>
+<path d='M 232,160 L 272,160' fill='none' stroke='currentColor'></path>
+<path d='M 32,176 L 224,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 488,176' fill='none' stroke='currentColor'></path>
+<path d='M 232,288 L 272,288' fill='none' stroke='currentColor'></path>
+<path d='M 32,368 L 224,368' fill='none' stroke='currentColor'></path>
+<path d='M 280,368 L 488,368' fill='none' stroke='currentColor'></path>
+<path d='M 0,400 L 248,400' fill='none' stroke='currentColor'></path>
+<path d='M 248,400 L 520,400' fill='none' stroke='currentColor'></path>
+<path d='M 64,448 L 416,448' fill='none' stroke='currentColor'></path>
+<path d='M 64,496 L 248,496' fill='none' stroke='currentColor'></path>
+<path d='M 248,496 L 416,496' fill='none' stroke='currentColor'></path>
+<path d='M 168,544 L 312,544' fill='none' stroke='currentColor'></path>
+<path d='M 168,576 L 248,576' fill='none' stroke='currentColor'></path>
+<path d='M 248,576 L 312,576' fill='none' stroke='currentColor'></path>
+<path d='M 120,624 L 360,624' fill='none' stroke='currentColor'></path>
+<path d='M 120,656 L 360,656' fill='none' stroke='currentColor'></path>
+<path d='M 0,96 L 0,400' fill='none' stroke='currentColor'></path>
+<path d='M 32,144 L 32,176' fill='none' stroke='currentColor'></path>
+<path d='M 32,176 L 32,368' fill='none' stroke='currentColor'></path>
+<path d='M 64,448 L 64,496' fill='none' stroke='currentColor'></path>
+<path d='M 120,624 L 120,656' fill='none' stroke='currentColor'></path>
+<path d='M 168,544 L 168,576' fill='none' stroke='currentColor'></path>
+<path d='M 176,0 L 176,32' fill='none' stroke='currentColor'></path>
+<path d='M 224,144 L 224,176' fill='none' stroke='currentColor'></path>
+<path d='M 224,176 L 224,368' fill='none' stroke='currentColor'></path>
+<path d='M 248,400 L 248,432' fill='none' stroke='currentColor'></path>
+<path d='M 248,496 L 248,528' fill='none' stroke='currentColor'></path>
+<path d='M 248,576 L 248,608' fill='none' stroke='currentColor'></path>
+<path d='M 256,32 L 256,80' fill='none' stroke='currentColor'></path>
+<path d='M 256,80 L 256,96' fill='none' stroke='currentColor'></path>
+<path d='M 280,144 L 280,176' fill='none' stroke='currentColor'></path>
+<path d='M 280,176 L 280,368' fill='none' stroke='currentColor'></path>
+<path d='M 312,544 L 312,576' fill='none' stroke='currentColor'></path>
+<path d='M 336,0 L 336,32' fill='none' stroke='currentColor'></path>
+<path d='M 360,624 L 360,656' fill='none' stroke='currentColor'></path>
+<path d='M 416,448 L 416,496' fill='none' stroke='currentColor'></path>
+<path d='M 488,144 L 488,176' fill='none' stroke='currentColor'></path>
+<path d='M 488,176 L 488,368' fill='none' stroke='currentColor'></path>
+<path d='M 520,96 L 520,400' fill='none' stroke='currentColor'></path>
+<polygon points='240.000000,288.000000 228.000000,282.399994 228.000000,293.600006' fill='currentColor' transform='rotate(180.000000, 232.000000, 288.000000)'></polygon>
+<path d='M 248,432 L 248,440' fill='none' stroke='currentColor'></path>
+<polygon points='264.000000,432.000000 252.000000,426.399994 252.000000,437.600006' fill='currentColor' transform='rotate(90.000000, 248.000000, 432.000000)'></polygon>
+<path d='M 248,528 L 248,536' fill='none' stroke='currentColor'></path>
+<polygon points='264.000000,528.000000 252.000000,522.400024 252.000000,533.599976' fill='currentColor' transform='rotate(90.000000, 248.000000, 528.000000)'></polygon>
+<path d='M 248,608 L 248,616' fill='none' stroke='currentColor'></path>
+<polygon points='264.000000,608.000000 252.000000,602.400024 252.000000,613.599976' fill='currentColor' transform='rotate(90.000000, 248.000000, 608.000000)'></polygon>
+<path d='M 256,80 L 256,88' fill='none' stroke='currentColor'></path>
+<polygon points='272.000000,80.000000 260.000000,74.400002 260.000000,85.599998' fill='currentColor' transform='rotate(90.000000, 256.000000, 80.000000)'></polygon>
+<polygon points='280.000000,160.000000 268.000000,154.399994 268.000000,165.600006' fill='currentColor' transform='rotate(0.000000, 272.000000, 160.000000)'></polygon>
+<circle cx='48' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='48' cy='224' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='48' cy='240' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='48' cy='256' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='48' cy='272' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='48' cy='304' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='48' cy='320' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='192' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='208' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='224' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='240' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='272' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='288' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='320' r='6' stroke='currentColor' fill='currentColor'></circle>
+<circle cx='296' cy='352' r='6' stroke='currentColor' fill='currentColor'></circle>
+<text text-anchor='middle' x='48' y='164' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='56' y='164' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='64' y='164' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='64' y='196' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='64' y='212' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='64' y='228' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='64' y='244' fill='currentColor' style='font-size:1em'>I</text>
+<text text-anchor='middle' x='64' y='260' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='64' y='276' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='64' y='292' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='64' y='308' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='64' y='324' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='64' y='340' fill='currentColor' style='font-size:1em'>&amp;</text>
+<text text-anchor='middle' x='72' y='164' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='72' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='212' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='72' y='228' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='244' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='72' y='260' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='276' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='72' y='292' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='72' y='308' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='324' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='80' y='164' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='80' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='80' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='80' y='228' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='80' y='244' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='80' y='260' fill='currentColor' style='font-size:1em'>q</text>
+<text text-anchor='middle' x='80' y='276' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='80' y='292' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='80' y='308' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='80' y='324' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='80' y='340' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='80' y='468' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='80' y='484' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='88' y='164' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='88' y='196' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='88' y='212' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='88' y='228' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='88' y='244' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='88' y='260' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='88' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='292' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='88' y='308' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='88' y='324' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='340' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='468' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='88' y='484' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='96' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='96' y='212' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='96' y='228' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='96' y='244' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='96' y='260' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='96' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='96' y='292' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='96' y='308' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='96' y='324' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='96' y='340' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='96' y='468' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='484' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='104' y='164' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='104' y='196' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='104' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='104' y='228' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='104' y='244' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='104' y='260' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='276' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='104' y='292' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='104' y='324' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='340' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='104' y='468' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='104' y='484' fill='currentColor' style='font-size:1em'>j</text>
+<text text-anchor='middle' x='112' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='196' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='112' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='228' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='112' y='244' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='260' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='112' y='276' fill='currentColor' style='font-size:1em'>O</text>
+<text text-anchor='middle' x='112' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='324' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='112' y='468' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='484' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='120' y='164' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='120' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='120' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='228' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='120' y='244' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='120' y='260' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='120' y='276' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='120' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='324' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='120' y='340' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='120' y='484' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='128' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='128' y='196' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='128' y='212' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='128' y='228' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='244' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='128' y='260' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='128' y='276' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='128' y='292' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='128' y='324' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='128' y='340' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='128' y='468' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='484' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='136' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='196' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='136' y='228' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='136' y='260' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='136' y='276' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='136' y='340' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='136' y='468' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='144' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='144' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='144' y='228' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='144' y='244' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='144' y='276' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='144' y='324' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='144' y='468' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='484' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='152' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='196' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='152' y='228' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='152' y='244' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='152' y='260' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='152' y='276' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='324' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='468' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='484' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='644' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='160' y='164' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='160' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='160' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='160' y='244' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='260' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='160' y='276' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='160' y='324' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='160' y='468' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='160' y='484' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='160' y='644' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='168' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='228' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='168' y='244' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='260' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='168' y='276' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='168' y='324' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='168' y='484' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='168' y='644' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='244' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='176' y='260' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='176' y='276' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='176' y='324' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='176' y='468' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='176' y='484' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='176' y='644' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='164' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='184' y='244' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='260' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='184' y='276' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='324' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='184' y='468' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='484' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='184' y='644' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='192' y='244' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='192' y='260' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='192' y='324' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='192' y='468' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='200' y='244' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='200' y='260' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='200' y='324' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='200' y='468' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='200' y='484' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='200' y='644' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='208' y='244' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='208' y='260' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='208' y='324' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='208' y='468' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='208' y='484' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='208' y='644' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='216' y='260' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='468' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='216' y='484' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='216' y='564' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='224' y='468' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='224' y='484' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='224' y='564' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='224' y='644' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='232' y='116' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='232' y='484' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='232' y='564' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='232' y='644' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='240' y='116' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='240' y='468' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='240' y='484' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='240' y='564' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='240' y='644' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='248' y='116' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='248' y='468' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='248' y='564' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='248' y='644' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='256' y='116' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='256' y='468' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='256' y='484' fill='currentColor' style='font-size:1em'>(</text>
+<text text-anchor='middle' x='256' y='564' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='256' y='644' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='264' y='116' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='264' y='468' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='264' y='484' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='264' y='564' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='272' y='116' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='272' y='484' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='272' y='564' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='272' y='644' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='116' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='280' y='468' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='280' y='484' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='280' y='644' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='288' y='116' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='288' y='468' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='288' y='484' fill='currentColor' style='font-size:1em'>)</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='296' y='164' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='296' y='468' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='296' y='644' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='304' y='164' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='304' y='468' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='304' y='644' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='312' y='164' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='312' y='196' fill='currentColor' style='font-size:1em'>B</text>
+<text text-anchor='middle' x='312' y='212' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='312' y='228' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='312' y='244' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='312' y='260' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='312' y='276' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='312' y='292' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='312' y='308' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='312' y='324' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='312' y='340' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='312' y='356' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='312' y='468' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='312' y='644' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='320' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='320' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='320' y='228' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='320' y='244' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='320' y='260' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='276' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='320' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='320' y='308' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='320' y='324' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='320' y='340' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='356' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='320' y='468' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='320' y='644' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='328' y='164' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='328' y='196' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='328' y='212' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='328' y='228' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='328' y='244' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='328' y='260' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='328' y='276' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='328' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='328' y='308' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='328' y='324' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='328' y='340' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='328' y='356' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='328' y='468' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='328' y='644' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='336' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='336' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='336' y='212' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='336' y='228' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='336' y='244' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='336' y='260' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='336' y='276' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='336' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='336' y='308' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='336' y='324' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='336' y='340' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='336' y='356' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='336' y='468' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='336' y='644' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='344' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='344' y='196' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='344' y='212' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='344' y='244' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='344' y='260' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='344' y='276' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='344' y='292' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='344' y='324' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='344' y='340' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='344' y='356' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='352' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='352' y='212' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='352' y='228' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='352' y='244' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='352' y='260' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='352' y='276' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='352' y='292' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='352' y='308' fill='currentColor' style='font-size:1em'>H</text>
+<text text-anchor='middle' x='352' y='324' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='352' y='340' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='352' y='356' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='352' y='468' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='360' y='164' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='360' y='196' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='360' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='360' y='228' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='360' y='244' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='360' y='260' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='360' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='360' y='292' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='360' y='308' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='360' y='324' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='360' y='340' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='360' y='356' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='360' y='468' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='368' y='164' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='368' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='368' y='212' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='368' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='368' y='244' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='368' y='260' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='368' y='276' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='368' y='292' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='368' y='308' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='368' y='324' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='368' y='340' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='368' y='356' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='368' y='468' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='376' y='164' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='376' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='376' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='376' y='228' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='376' y='244' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='376' y='260' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='376' y='276' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='376' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='376' y='308' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='376' y='324' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='376' y='340' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='376' y='468' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='384' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='384' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='228' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='384' y='244' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='384' y='260' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='276' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='384' y='292' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='384' y='308' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='324' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='384' y='340' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='356' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='392' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='392' y='196' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='392' y='212' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='392' y='228' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='392' y='244' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='392' y='260' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='392' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='392' y='324' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='392' y='340' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='392' y='356' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='400' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='400' y='196' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='400' y='228' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='400' y='244' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='400' y='276' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='400' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='400' y='308' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='400' y='324' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='400' y='356' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='408' y='164' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='408' y='196' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='408' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='408' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='408' y='292' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='408' y='308' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='408' y='324' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='408' y='356' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='416' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='416' y='228' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='416' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='416' y='308' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='416' y='324' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='416' y='356' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='424' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='424' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='424' y='276' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='424' y='292' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='424' y='308' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='424' y='324' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='424' y='356' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='432' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='432' y='228' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='432' y='276' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='432' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='432' y='308' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='432' y='324' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='432' y='356' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='440' y='196' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='440' y='276' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='440' y='292' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='440' y='308' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='440' y='324' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='440' y='356' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='448' y='276' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='448' y='292' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='448' y='308' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='448' y='324' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='448' y='356' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='456' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='456' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='456' y='308' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='456' y='324' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='456' y='356' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='464' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='464' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='472' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='472' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='480' y='276' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='480' y='292' fill='currentColor' style='font-size:1em'>g</text>
+</g>
+
+    </svg>
+  
+</div>
+<h2 id="performance-assessment-and-training">Performance Assessment and Training</h2>
+<p>Once a model is selected, it’s time to mold it to perfection. Techniques such as in-context learning and prompt engineering can refine the model’s performance. In cases where these adjustments don’t suffice, fine-tuning might be the way forward.</p>
+<h2 id="ensuring-model-behavior-is-aligned">Ensuring Model Behavior is Aligned</h2>
+<p>The technical prowess of a model is just one piece of the puzzle. It’s equally vital to ensure that the model’s behavior aligns with human preferences, leading to outputs that resonate with end-users.</p>
+<h2 id="evaluation-of-the-model">Evaluation of the Model</h2>
+<p>Every tweak, adjustment, or overhaul needs validation. By leveraging appropriate metrics and benchmarks, developers can gauge the model’s performance, ensuring it aligns seamlessly with the project’s objectives.</p>
+<h1 id="stage-4-application-integration-and-deployment">Stage 4: Application Integration and Deployment</h1>
+<h2 id="model-optimization">Model Optimization</h2>
+<p>As the model gears up for deployment, optimization becomes paramount. This step ensures that computational resources are used efficiently, guaranteeing a seamless user experience.</p>
+<h2 id="dealing-with-llm-limitations">Dealing with LLM Limitations</h2>
+<p>No model is flawless. Acknowledging the inherent limitations of LLMs, such as the potential to generate incorrect information or their limited reasoning capabilities, is crucial. This section introduces techniques to counteract these limitations, ensuring a robust, reliable application.</p>
+<p>Read more about <a href="/@stefanovskyi/mitigating-undesirable-outputs-from-large-language-models-7d6bdfaf2a2">mitigating undesirable outputs from LLMs</a> in my article.</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 1112 345"
+      >
+      <g transform='translate(8,16)'>
+<path d='M 0,64 L 888,64' fill='none' stroke='currentColor'></path>
+<path d='M 0,112 L 888,112' fill='none' stroke='currentColor'></path>
+<path d='M 0,160 L 888,160' fill='none' stroke='currentColor'></path>
+<path d='M 0,256 L 888,256' fill='none' stroke='currentColor'></path>
+<path d='M 0,320 L 888,320' fill='none' stroke='currentColor'></path>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>W</text>
+<text text-anchor='middle' x='0' y='84' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='0' y='100' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='0' y='132' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='0' y='148' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='0' y='180' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='0' y='196' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='0' y='212' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='0' y='228' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='0' y='244' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='0' y='276' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='0' y='292' fill='currentColor' style='font-size:1em'>O</text>
+<text text-anchor='middle' x='0' y='308' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='84' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='8' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='148' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='8' y='180' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='8' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='8' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='8' y='228' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='8' y='244' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='8' y='276' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='8' y='292' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='8' y='308' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='16' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='16' y='100' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='16' y='132' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='16' y='148' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='16' y='180' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='16' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='228' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='16' y='244' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='276' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='16' y='292' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='308' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='24' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='148' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='24' y='180' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='196' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='24' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='228' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='24' y='244' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='24' y='276' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='24' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='24' y='308' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='32' y='132' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='148' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='180' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='32' y='196' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='212' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='32' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='32' y='244' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='32' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='32' y='292' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='32' y='308' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='132' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='244' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='276' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='40' y='292' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='40' y='308' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='48' y='180' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='48' y='212' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='48' y='228' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='48' y='244' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='276' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='48' y='292' fill='currentColor' style='font-size:1em'>z</text>
+<text text-anchor='middle' x='48' y='308' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='100' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='148' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='56' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='56' y='196' fill='currentColor' style='font-size:1em'>E</text>
+<text text-anchor='middle' x='56' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='56' y='228' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='56' y='244' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='276' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='100' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='64' y='148' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='64' y='180' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='64' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='64' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='64' y='228' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='64' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='64' y='308' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='72' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='148' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='72' y='196' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='72' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='72' y='228' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='72' y='276' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='72' y='292' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='72' y='308' fill='currentColor' style='font-size:1em'>L</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='80' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='80' y='180' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='80' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='80' y='212' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='80' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='80' y='292' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='80' y='308' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='88' y='100' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='88' y='148' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='88' y='180' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='88' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='88' y='228' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='88' y='292' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='96' y='180' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='96' y='228' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='96' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='308' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='104' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='104' y='180' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='104' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='104' y='228' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='104' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='292' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='104' y='308' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='112' y='100' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='112' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='112' y='228' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='112' y='276' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='112' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='112' y='308' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='120' y='100' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='120' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='120' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='276' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='120' y='292' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='120' y='308' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='128' y='180' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='128' y='276' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='128' y='292' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='128' y='308' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='136' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='136' y='180' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='136' y='196' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='136' y='228' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='136' y='276' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='136' y='292' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='136' y='308' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='144' y='180' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='228' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='144' y='276' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='144' y='292' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='144' y='308' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='152' y='180' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='228' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='276' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='152' y='308' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='160' y='180' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='160' y='228' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='160' y='276' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='160' y='292' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='160' y='308' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='168' y='228' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='168' y='276' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='168' y='292' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='168' y='308' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='176' y='228' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='176' y='276' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='292' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='308' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='184' y='228' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='184' y='276' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='184' y='292' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='308' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='192' y='228' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='192' y='292' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='216' y='52' fill='currentColor' style='font-size:1em'>|</text>
+<text text-anchor='middle' x='216' y='100' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='224' y='100' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='232' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='232' y='100' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='240' y='100' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>G</text>
+<text text-anchor='middle' x='248' y='100' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='256' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='256' y='100' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='264' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='264' y='100' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='264' y='148' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='272' y='36' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='272' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='280' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='280' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='288' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='288' y='52' fill='currentColor' style='font-size:1em'>3</text>
+<text text-anchor='middle' x='288' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='296' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='304' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='304' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='312' y='52' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='312' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='320' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='328' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='328' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='336' y='52' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='336' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='344' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='352' y='52' fill='currentColor' style='font-size:1em'>|</text>
+<text text-anchor='middle' x='352' y='148' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='360' y='148' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='360' y='196' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='360' y='212' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='368' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='368' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='368' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='368' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='376' y='52' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='376' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='376' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='384' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='384' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='384' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='392' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='392' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='392' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='400' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='400' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='400' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='408' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='408' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='416' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='416' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='416' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='424' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='424' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='424' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='432' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='432' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='440' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='440' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='440' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='448' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='448' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='448' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='456' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='456' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='464' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='464' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='464' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='472' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='472' y='196' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='472' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='480' y='196' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='480' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='488' y='52' fill='currentColor' style='font-size:1em'>|</text>
+<text text-anchor='middle' x='488' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='488' y='228' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='488' y='244' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='496' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='496' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='496' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='504' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='504' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='504' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='504' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='512' y='52' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='512' y='212' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='512' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='512' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='520' y='212' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='520' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='520' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='528' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='528' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='528' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='536' y='52' fill='currentColor' style='font-size:1em'>6</text>
+<text text-anchor='middle' x='536' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='536' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='544' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='544' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='552' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='552' y='228' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='552' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='560' y='52' fill='currentColor' style='font-size:1em'>7</text>
+<text text-anchor='middle' x='560' y='228' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='560' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='568' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='576' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='576' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='584' y='52' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='584' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='592' y='244' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='600' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='600' y='244' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='600' y='292' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='600' y='308' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='608' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='608' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='608' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='616' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='616' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='624' y='52' fill='currentColor' style='font-size:1em'>|</text>
+<text text-anchor='middle' x='624' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='624' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='632' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='632' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='640' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='640' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='640' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='648' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='648' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='648' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='656' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='656' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='664' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='664' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='664' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='672' y='52' fill='currentColor' style='font-size:1em'>3</text>
+<text text-anchor='middle' x='672' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='672' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='680' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='680' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='688' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='688' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='688' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='696' y='52' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='696' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='696' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='704' y='292' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='704' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='712' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='712' y='292' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='712' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='720' y='52' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='720' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='728' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='736' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='736' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='744' y='36' fill='currentColor' style='font-size:1em'>O</text>
+<text text-anchor='middle' x='744' y='52' fill='currentColor' style='font-size:1em'>6</text>
+<text text-anchor='middle' x='744' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='752' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='752' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='760' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='760' y='52' fill='currentColor' style='font-size:1em'>|</text>
+<text text-anchor='middle' x='760' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='768' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='776' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='776' y='308' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='784' y='52' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='784' y='308' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='800' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='808' y='52' fill='currentColor' style='font-size:1em'>0</text>
+<text text-anchor='middle' x='824' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='832' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='848' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='856' y='52' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='872' y='52' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='880' y='52' fill='currentColor' style='font-size:1em'>3</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>Gantt diagram of a typical project with generative AI</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The journey of developing and deploying an LLM-powered application is intricate filled with decisions, evaluations, and iterations. However, by following a structured Generative AI project life cycle, developers can navigate these complexities with confidence, leading to successful, impactful applications.</p>
+<p>You can see the source code of the diagrams on <a href="https://github.com/stefanovskyi/generativeai-project-lifecycle">my GitHub</a>.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/posts">All posts</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#from-defining-your-projects-scope-to-achieving-optimal-model-deployment-a-comprehensive-guide">From defining your project’s scope to achieving optimal model deployment: a comprehensive guide.</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#importance-of-scope-definition">Importance of Scope Definition</a>
+      <ul>
+        <li><a href="#there-are-planty-of-typical-tasks-for-llms-but-the-most-common-are">There are planty of typical tasks for LLMs, but the most common are:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#understanding-model-capabilities">Understanding Model Capabilities</a></li>
+    <li><a href="#considerations-for-model-selection">Considerations for Model Selection</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#performance-assessment-and-training">Performance Assessment and Training</a></li>
+    <li><a href="#ensuring-model-behavior-is-aligned">Ensuring Model Behavior is Aligned</a></li>
+    <li><a href="#evaluation-of-the-model">Evaluation of the Model</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#model-optimization">Model Optimization</a></li>
+    <li><a href="#dealing-with-llm-limitations">Dealing with LLM Limitations</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&text=Generative%20AI%20Project%20Lifecycle" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&title=Generative%20AI%20Project%20Lifecycle" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&is_video=false&description=Generative%20AI%20Project%20Lifecycle" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Generative%20AI%20Project%20Lifecycle&body=Check out this article: https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&title=Generative%20AI%20Project%20Lifecycle" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&title=Generative%20AI%20Project%20Lifecycle" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&name=Generative%20AI%20Project%20Lifecycle&description=From%20defining%20your%20project%e2%80%99s%20scope%20to%20achieving%20optimal%20model%20deployment%3a%20a%20comprehensive%20guide.%20In%20the%20realm%20of%20software%20development%2c%20particularly%20when%20diving%20into%20the%20world%20of%20Generative%20AI%2c%20a%20structured%2c%20methodological%20approach%20can%20be%20the%20difference%20between%20a%20successful%20project%20and%20one%20that%20falters.%20As%20developers%20and%20architects%2c%20it%e2%80%99s%20imperative%20to%20understand%20each%20phase%20involved%20in%20developing%20and%20deploying%20a%20Language%20Model%20like%20LLM.%20This%20article%20serves%20as%20a%20roadmap%2c%20detailing%20the%20journey%20from%20project%20conception%20to%20its%20successful%20launch." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.stefanovskyi.com%2fposts%2fgenai_project_lifecycle%2f&t=Generative%20AI%20Project%20Lifecycle" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2026  Oleksandr Stefanovskyi Blog 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/posts">All posts</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
