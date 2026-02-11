@@ -4,7 +4,7 @@
 - [x] Task: Create the Mermaid shortcode (5f0a1b0)
     - [ ] Create `layouts/shortcodes/mermaid.html`
     - [ ] Verify the shortcode outputs the correct HTML structure
-- [ ] Task: Integrate Mermaid.js script
+- [x] Task: Integrate Mermaid.js script (ad795a0)
     - [ ] Copy `themes/cactus/layouts/_default/baseof.html` to `layouts/_default/baseof.html` if it doesn't exist
     - [ ] Add the Mermaid.js initialization script to `layouts/_default/baseof.html`
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Scaffolding and Integration' (Protocol in workflow.md)
