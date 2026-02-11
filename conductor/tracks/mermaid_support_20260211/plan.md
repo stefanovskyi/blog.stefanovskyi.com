@@ -1,7 +1,7 @@
 # Implementation Plan: Mermaid Diagram Support
 
 ## Phase 1: Scaffolding and Integration
-- [ ] Task: Create the Mermaid shortcode
+- [x] Task: Create the Mermaid shortcode (5f0a1b0)
     - [ ] Create `layouts/shortcodes/mermaid.html`
     - [ ] Verify the shortcode outputs the correct HTML structure
 - [ ] Task: Integrate Mermaid.js script
