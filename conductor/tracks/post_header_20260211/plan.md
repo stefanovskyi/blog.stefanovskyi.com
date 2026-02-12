@@ -6,7 +6,7 @@
     - [ ] Implement logo, title, and "All posts" link logic
     - [ ] Ensure links point to `/posts`
     - [ ] Apply green color (#2bbc8a) to the "All posts" link
-- [ ] Task: Integrate header into single post layout
+- [x] Task: Integrate header into single post layout (34c6d36)
     - [ ] Update `layouts/posts/single.html` to include `post_header.html` above `page_nav.html`
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Implementation' (Protocol in workflow.md)
 
