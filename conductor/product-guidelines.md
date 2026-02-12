@@ -41,3 +41,9 @@
 - **Placement:** Use the `{{< caption >}}` shortcode immediately before or after a table or complex diagram.
 - **Style:** Captions are italicized, muted grey, and feature a 3px solid green (`#2bbc8a`) left border.
 - **Content:** Use captions to provide context, title the element (e.g., "**Table 1:**"), or summarize key findings.
+
+### Consultation Banner
+- **Placement:** Automatically included at the bottom of individual blog posts, before the comments.
+- **Style:** Features a dark background (`#1a1a1a`), a 5px solid yellow (`#F1C40F`) left border, and a prominent yellow CTA button.
+- **Layout:** Compact side-by-side layout (headline on left, button on right) that stacks on mobile.
+- **Purpose:** To drive conversion for professional consultations and services.
