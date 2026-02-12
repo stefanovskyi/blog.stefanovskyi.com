@@ -9,7 +9,7 @@
     - [ ] Add CSS for the banner container (background `#1a1a1a`, border `#F1C40F`)
     - [ ] Style the CTA button (background `#F1C40F`, dark text)
     - [ ] Ensure mobile responsiveness
-- [ ] Task: Integrate banner into single post layout
+- [x] Task: Integrate banner into single post layout (bedac96)
     - [ ] Update `layouts/posts/single.html` to include `consultation_banner.html` before the comments partial
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Implementation' (Protocol in workflow.md)
 
