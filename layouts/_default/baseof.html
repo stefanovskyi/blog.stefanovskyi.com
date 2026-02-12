@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 {{ partial "head.html" . }}
+<style>
+  .mermaid {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+</style>
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
 
@@ -19,6 +30,17 @@
 <script src={{ "js/main.js" | relURL }}></script>
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      primaryColor: '#1db954',
+      primaryTextColor: '#fff',
+      primaryBorderColor: '#1db954',
+      lineColor: '#1db954',
+      secondaryColor: '#006100',
+      tertiaryColor: '#535353'
+    }
+  });
 </script>
 </html>

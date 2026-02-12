@@ -16,6 +16,43 @@ Third is the security trend. As access to these tools expands, everyone becomes 
 
 ## The software development lifecycle changes dramatically
 
+{{< mermaid >}}
+%%{init: {'theme': 'dark', 'themeVariables': { 'edgeLabelBackground': '#121212', 'primaryTextColor': '#fff' }}}%%
+graph TD
+%% Nodes
+User((Human Architect)) -->|Strategic Goal| TA[Tech Lead Agent]
+
+    subgraph Workforce ["AGENTS & AUTOMATION"]
+        direction TB
+        TA -->|Decompose| A1[Coding Agent]
+        TA -->|Delegate| A2[Testing Agent]
+        TA -->|Consult| A3[Security Agent]
+
+        A1 -->|Code| Review[Auto-Review]
+        A2 -->|Tests| Review
+        A3 -->|Audit| Review
+    end
+
+    Review -->|Flagged Issues| User
+    Review -->|Verified Output| Deploy[Production]
+
+    %% STYLING FOR DARK MODE
+    %% Accent Color: Neon Cyan/Green
+
+    classDef darkNode fill:#121212,stroke:#1DE9B6,stroke-width:2px,color:#fff
+    classDef humanNode fill:#000000,stroke:#1DE9B6,stroke-width:4px,color:#fff,stroke-dasharray: 5 5
+    classDef container fill:#1a1a1a,stroke:#666,stroke-width:1px,color:#bbb,stroke-dasharray: 3 3
+
+    %% Apply Styles
+    class User humanNode
+    class TA,A1,A2,A3,Review,Deploy darkNode
+    class Workforce container
+
+    %% Link Styles (Green lines, White text)
+    linkStyle default stroke:#1DE9B6,stroke-width:1px,color:#fff
+
+{{< /mermaid >}}
+
 Software Engineers will shift to the role of Orchestrators, resembling Project Managers or Solution Architects. This raises the question: where do existing PMs and SAs move? regardless, it is obvious that code written by AI is no longer subpar; we must learn to work with it.
 
 Single agents evolve into coordinated teams - organizations will adopt multi-agent workflows that maximize performance through parallel reasoning across separate context windows. This makes perfect sense. Anthropic is showcasing their Claude Code and its effective sub-agent features. It seems that SEs turning into SAs will manage a "Tech Lead" agent, who in turn manages a team of specialized agents.
@@ -23,6 +60,14 @@ Single agents evolve into coordinated teams - organizations will adopt multi-age
 Long-running agents build complete systems - the most interesting aspect here is validating the correctness of an agent's work over long periods. I am excited to delegate complex feature development to an AI agent, but I worry about it entering an infinite loop and burning tokens on nonsense for hours. In concept, however, it sounds like a dream.
 
 Human oversight scales through intelligent collaboration - this answers my previous concern: "human oversight." We need agents capable of asking for help rather than making assumptions.
+
+| Feature              | Traditional SDLC (2024)                   | Agentic SDLC (2026)                                 |
+| :------------------- | :---------------------------------------- | :-------------------------------------------------- |
+| **Engineer's Role**  | Writer & Debugger                         | Orchestrator & Reviewer                             |
+| **Primary Workflow** | Sequential (Plan &rarr; Code &rarr; Test) | Parallel (Plan &rarr; Agents Execute &rarr; Verify) |
+| **Iteration Speed**  | Weeks/Months                              | Hours/Days                                          |
+| **Testing**          | Manual/Automated Scripts                  | Agent-Driven & Self-Healing                         |
+| **Bottleneck**       | Human Typing Speed                        | Human Decision Speed                                |
 
 The report states the human role remains central, which is logical. I want the ability to jump in and inspect what the agent is doing at any moment; not to review everything, but to review the critical parts. Ideally, the agent would flag exactly what requires review.
 
@@ -37,6 +82,67 @@ I love this trend and encourage everyone I know to solve their problems using AI
 Timeline compression changes project viability. This is huge, and we already feel it. People arrive at meetings asking for an MVP in weeks rather than months; many even bring their own prototypes. This is both exciting and frightening. Many believe this pace will continue linearly, but the technology isn't fully there yet—and more importantly, not all engineers are there yet. The pace of change is so rapid that we cannot learn everything, and what we do learn often becomes outdated within months.
 
 ## Agentic coding improves security defenses; but also offensive uses
+
+{{< mermaid >}}
+%%{init: {'theme': 'dark', 'themeVariables': { 'edgeLabelBackground': '#121212', 'primaryTextColor': '#fff' }}}%%
+graph TD
+%% Core Node
+Core((("Agentic AI<br/>(The Shared Tool)")))
+
+    %% Branches
+    Core ==>|Democratized Defense| Shield
+    Core ==>|Democratized Offense| Sword
+
+    %% Defensive Cluster
+    subgraph Shield_Group ["DEFENSE (Builders)"]
+        direction TB
+        Shield[Security Engineering]
+        D1[Auto-Patching]
+        D2[Vulnerability Scanning]
+        D3[Real-time Monitoring]
+
+        Shield --> D1
+        Shield --> D2
+        Shield --> D3
+    end
+
+    %% Offensive Cluster
+    subgraph Sword_Group ["OFFENSE (Adversaries)"]
+        direction TB
+        Sword[Threat Acting]
+        O1[Automated Exploits]
+        O2[Deepfakes & Bots]
+        O3[Scaled Phishing]
+
+        Sword --> O1
+        Sword --> O2
+        Sword --> O3
+    end
+
+    %% STYLING
+    %% Green/Cyan for Good (matches your previous diagram)
+    classDef goodNode fill:#121212,stroke:#1DE9B6,stroke-width:2px,color:#fff
+
+    %% Red/Orange for Bad (highlights the risk)
+    classDef badNode fill:#121212,stroke:#FF5252,stroke-width:2px,color:#fff
+
+    %% Core Node (Neutral/White)
+    classDef coreNode fill:#000000,stroke:#fff,stroke-width:4px,color:#fff
+
+    %% Container Styling
+    classDef container fill:#1a1a1a,stroke:#666,stroke-width:1px,color:#bbb,stroke-dasharray: 3 3
+
+    %% Apply Classes
+    class Shield,D1,D2,D3 goodNode
+    class Sword,O1,O2,O3 badNode
+    class Core coreNode
+    class Shield_Group,Sword_Group container
+
+    %% Link Styling
+    linkStyle 0,2,3,4 stroke:#1DE9B6,stroke-width:2px,color:#fff
+    linkStyle 1,5,6,7 stroke:#FF5252,stroke-width:2px,color:#fff
+
+{{< /mermaid >}}
 
 I worry that while many will enter security to make software more defensible and stable, these people are primarily focused on building. Conversely, attackers are highly motivated by the nature of their "job." They will likely use AI to find security holes more frequently. Furthermore, they will use generative AI to create bots, spread propaganda, and execute scams. This represents a significant security and information threat we must face in the coming years.
 
