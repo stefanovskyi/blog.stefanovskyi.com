@@ -11,6 +11,38 @@
     display: flex;
     justify-content: center;
   }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+  th {
+    background-color: #1db954;
+    color: #fff;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #1db954;
+  }
+  td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  tr:nth-child(even) {
+    background-color: #222;
+  }
+  tr:hover {
+    background-color: #2a2a2a;
+  }
 </style>
 <body class="max-width mx-auto px3 ltr">
   <div class="content index py4">
