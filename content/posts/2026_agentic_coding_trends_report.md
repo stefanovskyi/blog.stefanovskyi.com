@@ -8,13 +8,15 @@ draft = false
 These are my thoughts on the "**2026 Agentic Coding Trends Report**" from Anthropic. This concise 18-page document serves as a high-level roadmap for anyone looking to succeed in technology by 2026. It is refreshing and motivating; it validates the perspective I have held regarding our current trajectory.
 {{< /caption >}}
 
-Anthropic outlines their vision for the future, categorizing predictions into three groups: foundation trends, capability trends, and impact trends. To summarize, I believe these can be distilled into three core shifts.
+Anthropic outlines their vision for the future, categorizing predictions into three groups: foundation trends, capability trends, and impact trends.
 
-First, agents will become significantly more capable. They will execute tasks in parallel, work over longer durations, and utilize sub-agents to decompose and distribute workloads. Consequently, the engineer in the loop evolves into an orchestrator or reviewer—the person who defines the final product and owns the outcome rather than the one writing every line of code.
+To summarize, I believe these can be distilled into three core shifts.
 
-Second, technology will democratize across non-technical roles. These individuals will drive impact in business by solving their own domain-specific problems using agents and coding tools. This will generate more software projects targeting problems previously considered out of scope or lower priority, yet essential for improving quality of life.
+- First, **agents will become significantly more capable**. They will execute tasks in parallel, work over longer durations, and utilize sub-agents to decompose and distribute workloads. Consequently, the engineer in the loop evolves into an orchestrator or reviewer—the person who defines the final product and owns the outcome rather than the one writing every line of code.
 
-Third is the security trend. As access to these tools expands, everyone becomes better equipped to defend their applications. However, this is a dual-use technology; bad actors are actively seeking to exploit it. In my view, the offensive capabilities may outweigh the defensive ones initially because attackers are highly motivated. The defense side may find itself in a challenging position.
+- Second, **technology will democratize across non-technical roles**. These individuals will drive impact in business by solving their own domain-specific problems using agents and coding tools. This will generate more software projects targeting problems previously considered out of scope or lower priority, yet essential for improving quality of life.
+
+- Third is the **security trend**. As access to these tools expands, everyone becomes better equipped to defend their applications. However, this is a dual-use technology; bad actors are actively seeking to exploit it. In my view, the offensive capabilities may outweigh the defensive ones initially because attackers are highly motivated. The defense side may find itself in a challenging position.
 
 ## The software development lifecycle changes dramatically
 
