@@ -7,7 +7,7 @@
 - [x] Task: Integrate Mermaid.js script (ad795a0)
     - [ ] Copy `themes/cactus/layouts/_default/baseof.html` to `layouts/_default/baseof.html` if it doesn't exist
     - [ ] Add the Mermaid.js initialization script to `layouts/_default/baseof.html`
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Scaffolding and Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Scaffolding and Integration' (Protocol in workflow.md) (830597c)
 
 ## Phase 2: Verification and Documentation
 - [ ] Task: Create a test post with a diagram
