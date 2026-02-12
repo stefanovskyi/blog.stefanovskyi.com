@@ -20,3 +20,24 @@
 ## Visual Identity
 - **Framework-Focused Visuals:** Prioritize diagrams that illustrate strategic frameworks, technical architectures, and AI workflows.
 - **Cohesive Branding:** Ensure all visual assets use a consistent style and color palette (aligned with the Cactus "dark" theme) to build a recognizable brand.
+
+## Visual Standards
+
+### Mermaid Diagrams
+- **Theme Integration:** Always use the `dark` theme and initialize with the project's primary green accent (`#2bbc8a`).
+- **Initialization Snippet:** Use the following initialization block within the diagram definition for consistent styling:
+  ```mermaid
+  %%{init: {'theme': 'dark', 'themeVariables': { 'edgeLabelBackground': '#121212', 'primaryTextColor': '#fff', 'primaryColor': '#2bbc8a', 'lineColor': '#2bbc8a' }}}%%
+  ```
+- **Node Styling:** Use `classDef` to define custom styles. Use `#1DE9B6` (or `#2bbc8a`) for positive/neutral actions and `#FF5252` for risks or offensive actions.
+- **Layout:** Prefer `graph TD` (Top-Down) for process flows and hierarchies.
+
+### Tables
+- **Standard Layout:** Tables should span the full width of the content area.
+- **Header Style:** Headers must have a solid background using the primary green accent (`#2bbc8a`) with white bold text.
+- **Row Styling:** Use alternating row colors (`#222` and `#1a1a1a`) and hover effects for better readability.
+
+### Captions
+- **Placement:** Use the `{{< caption >}}` shortcode immediately before or after a table or complex diagram.
+- **Style:** Captions are italicized, muted grey, and feature a 3px solid green (`#2bbc8a`) left border.
+- **Content:** Use captions to provide context, title the element (e.g., "**Table 1:**"), or summarize key findings.

@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Implement Mermaid diagram support**
+- [x] **Track: Implement Mermaid diagram support**
   *Link: [./tracks/mermaid_support_20260211/](./tracks/mermaid_support_20260211/)*
