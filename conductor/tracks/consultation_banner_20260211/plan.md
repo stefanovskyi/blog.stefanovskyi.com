@@ -5,7 +5,7 @@
     - [ ] Create `layouts/partials/consultation_banner.html`
     - [ ] Implement HTML structure with headline and button
     - [ ] Link button to `http://stefanovskyi.com`
-- [ ] Task: Apply styling to the banner
+- [x] Task: Apply styling to the banner (1d4b891)
     - [ ] Add CSS for the banner container (background `#1a1a1a`, border `#F1C40F`)
     - [ ] Style the CTA button (background `#F1C40F`, dark text)
     - [ ] Ensure mobile responsiveness
