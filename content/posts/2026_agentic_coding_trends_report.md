@@ -4,7 +4,9 @@ date = 2026-02-11T14:11:59+01:00
 draft = false
 +++
 
-These are my thoughts on the "2026 Agentic Coding Trends Report" from Anthropic. This concise 18-page document serves as a high-level roadmap for anyone looking to succeed in technology by 2026. It is refreshing and motivating; it validates the perspective I have held regarding our current trajectory.
+{{< caption >}}
+These are my thoughts on the "**2026 Agentic Coding Trends Report**" from Anthropic. This concise 18-page document serves as a high-level roadmap for anyone looking to succeed in technology by 2026. It is refreshing and motivating; it validates the perspective I have held regarding our current trajectory.
+{{< /caption >}}
 
 Anthropic outlines their vision for the future, categorizing predictions into three groups: foundation trends, capability trends, and impact trends. To summarize, I believe these can be distilled into three core shifts.
 
@@ -87,14 +89,14 @@ Timeline compression changes project viability. This is huge, and we already fee
 %%{init: {'theme': 'dark', 'themeVariables': { 'edgeLabelBackground': '#121212', 'primaryTextColor': '#fff' }}}%%
 graph TD
 %% Core Node
-Core((("Agentic AI<br/>(The Shared Tool)")))
+Core((("Agentic AI")))
 
     %% Branches
     Core ==>|Democratized Defense| Shield
     Core ==>|Democratized Offense| Sword
 
     %% Defensive Cluster
-    subgraph Shield_Group ["DEFENSE (Builders)"]
+    subgraph Shield_Group [" "]
         direction TB
         Shield[Security Engineering]
         D1[Auto-Patching]
@@ -107,7 +109,7 @@ Core((("Agentic AI<br/>(The Shared Tool)")))
     end
 
     %% Offensive Cluster
-    subgraph Sword_Group ["OFFENSE (Adversaries)"]
+    subgraph Sword_Group [" "]
         direction TB
         Sword[Threat Acting]
         O1[Automated Exploits]
